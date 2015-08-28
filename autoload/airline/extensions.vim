@@ -130,6 +130,10 @@ function! airline#extensions#load()
 
   call airline#extensions#quickfix#init(s:ext)
 
+  if (get(g:, 'airline#extensions#kanban#enabled', 1))
+    call airline#extensions#kanban#init(s:ext)
+  endif
+
   if get(g:, 'loaded_unite', 0)
     call airline#extensions#unite#init(s:ext)
   endif
