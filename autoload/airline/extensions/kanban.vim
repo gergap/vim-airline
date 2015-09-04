@@ -25,8 +25,8 @@ function! Timer()
   call feedkeys("f\e")
 endfunction
 
-augroup Kanban
-  autocmd!
-  " this one is which you're most likely to use?
-  autocmd CursorHold * call Timer()
-augroup end
+" augroup Kanban
+"   autocmd!
+"   " this one is which you're most likely to use?
+"   autocmd CursorHold * call Timer()
+" augroup end
