@@ -21,12 +21,14 @@ function! airline#extensions#kanban#apply(...)
   endif
 endfunction
 
-function! Timer()
-  call feedkeys("f\e")
+if version < 800
+  echom "You need VIM >=8.0 to enable timer events. Timers are necessary to update the pomodoro status."
+  finish
+endif
+
+function! airline#extensions#kanban#timer_event(timer)
+    call airline#update_statusline()
 endfunction
 
-" augroup Kanban
-"   autocmd!
-"   " this one is which you're most likely to use?
-"   autocmd CursorHold * call Timer()
-" augroup end
+let g:kanbab_timer = timer_start(1000, 'airline#extensions#kanban#timer_event', {'repeat': -1})
+
